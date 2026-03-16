@@ -23,7 +23,10 @@ class WishDB(Base):
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
-
+@app.get("/")
+def read_root():
+    return {"message": "Backend Lebaran Aktif! Cek /docs untuk API"}
+    
 # Middleware CORS agar Vercel bisa akses
 app.add_middleware(
     CORSMiddleware,
